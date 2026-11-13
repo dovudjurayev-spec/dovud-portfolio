@@ -99,7 +99,9 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
 
 /* Works */
 .works{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,32px);row-gap:clamp(70px,10vh,130px)}
-.work{grid-column:1/-1}
+.work{grid-column:1/-1;opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.work.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.work{opacity:1;transform:none;transition:none}}
 .w-a{grid-column:1/7}
 .w-b{grid-column:7/13;margin-top:clamp(120px,22vh,260px)}
 .w-c{grid-column:1/8}
@@ -244,7 +246,7 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
   <section class="hero">
     <h1 class="title" id="title" aria-label="Design Engineer"><span class="w"><span>Design</span></span> <span class="w"><span>Engineer</span></span></h1>
     <div class="hero-meta">
-      <a href="mailto:hello@example.com">hello@example.com</a>
+      <a href="mailto:info@dovud.work">info@dovud.work</a>
       <p data-i18n="hero_sub">UX/UI-дизайнер и разработчик. Проектирую интерфейсы и сам пишу их код.</p>
     </div>
     <div class="intro">
@@ -354,17 +356,17 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
 
   <section class="contact" id="contact">
     <p data-i18n="contact_p">Ищу постоянную работу: удалённо, гибрид или офис в Ташкенте. Напишите, отвечу в течение дня.</p>
-    <a class="mail" href="mailto:hello@example.com">hello@example.com</a>
+    <a class="mail" href="mailto:info@dovud.work">info@dovud.work</a>
   </section>
 </main>
 
 <footer>
   <div class="foot">
     <nav aria-label="Ссылки">
-      <a href="#">Telegram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
-      <a href="#" data-i18n="cv">Резюме</a>
+      <a href="https://t.me/juraeww" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.linkedin.com/in/jurayevdovud" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/dovudjurayev-spec" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:info@dovud.work" data-i18n="cv">Email</a>
     </nav>
     <span data-i18n="city">Ташкент, Узбекистан</span>
   </div>
@@ -386,6 +388,26 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
       else { var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); }
     } catch(e){}
   });
+
+  /* ---------- Reveal works on scroll ---------- */
+  (function(){
+    var items = document.querySelectorAll(".work");
+    if (!items.length) return;
+    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      items.forEach(function(el){ el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    items.forEach(function(el){ io.observe(el); });
+  })();
 
   /* ---------- Language ---------- */
   var en = {
