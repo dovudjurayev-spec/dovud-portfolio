@@ -78,6 +78,7 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
 .hero-meta a:hover{color:var(--ink)}
 .hero-meta p{margin:0;text-align:right;max-width:26ch;font-weight:500;line-height:1.35}
 .intro{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:clamp(80px,16vh,200px)}
+.intro.intro-solo{grid-template-columns:1fr;margin-top:clamp(60px,10vh,120px)}
 .intro p{margin:0;font-size:clamp(26px,3.2vw,48px);line-height:1.12;letter-spacing:-.025em;font-weight:400;max-width:24ch;color:var(--ink)}
 .expertise h2{margin:0 0 10px;font-size:15px;font-weight:500;color:var(--muted)}
 .expertise ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
@@ -249,8 +250,7 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
       <a href="mailto:info@dovud.work">info@dovud.work</a>
       <p data-i18n="hero_sub">UX/UI-дизайнер и разработчик. Проектирую интерфейсы и сам пишу их код.</p>
     </div>
-    <div class="intro">
-      <p data-i18n="intro">Довуд Джураев — дизайнер и разработчик из Ташкента. Запускаю интернет-магазины с онлайн-оплатой, мобильные приложения и сайты: от исследования и прототипа в Figma до кода в продакшене.</p>
+    <div class="intro intro-solo">
       <div class="expertise">
         <h2 data-i18n="exp_title">Чем занимаюсь</h2>
         <ul>
@@ -336,7 +336,7 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
     </div>
     <ul class="list">
       <li><h3>Aesthetic Cosmetics</h3><p data-i18n="aes_d">Магазин косметики: каталог, корзина и оплата прямо на сайте.</p><a href="https://aestheticcosmetics.store" target="_blank" rel="noopener">aestheticcosmetics.store</a></li>
-      <li><h3>Kalix</h3><p data-i18n="kalix_d">Лендинг компании.</p><a href="https://kalix.tech" target="_blank" rel="noopener">kalix.tech</a></li>
+      <li><h3>Kalix</h3><p data-i18n="kalix_d">Лендинг онлайн-школы по внедрению AI в бизнес: структура курса, модули, тарифы и форма заявки. Дизайн и фронтенд.</p><a href="https://kalix.tech" target="_blank" rel="noopener">kalix.tech</a></li>
     </ul>
   </section>
 
@@ -413,7 +413,6 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
   var en = {
     nav_name:"Dovud", nav_work:"Work", nav_process:"Process", nav_contact:"Contact", status:"Open to work",
     hero_sub:"UX/UI designer and developer. I design interfaces and write their code myself.",
-    intro:"Dovud Jurayev is a designer and developer from Tashkent. I ship online stores with payments, mobile apps and websites, from research and Figma prototypes to code in production.",
     exp_title:"What I do", exp1:"E-commerce and payments", exp2:"Mobile apps", exp3:"UX research", exp4:"Design systems",
     exp6:"AI in products", exp7:"Motion and 3D", exp8:"Node.js and databases",
     work_title:"Selected work", work_sub:"I run every project myself: design, code, launch.",
@@ -426,7 +425,7 @@ a.pill:hover,button.pill:hover{background:var(--pill-hover)}
     c_n1:"Properties", c_n2:"Services", c_n3:"Contact", c_h:"Commercial property, professionally managed", c_p1:"Office, 120 m²", c_p2:"Retail unit, 85 m²", c_p3:"Warehouse, 400 m²", c_free:"Available", c_busy:"Leased", cov_c:"Corporate website",
     ver_d:"Landing page with 3D animation.", ver_c:"Landing and 3D",
     more_title:"More work", more_sub:"An online store and landing pages.",
-    covex_d:"Website for a commercial real estate management company.", kalix_d:"Company landing page.", nova_d:"Website.",
+    covex_d:"Website for a commercial real estate management company.", kalix_d:"Landing page for an online school teaching AI adoption in business: course structure, modules, pricing and lead form. Design and frontend.", nova_d:"Website.",
     kbf_d:"Landing page for the federation.", vel_d:"My own perfume store: brand, reels, creatives, motion.", na:"Link on request",
     proc_title:"How I work", proc_sub:"One person from research to release, so nothing gets lost on the way.",
     s1:"Research", s1d:"I find out who the user is and what gets in their way today.",
